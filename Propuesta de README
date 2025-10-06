@@ -1,0 +1,193 @@
+# Advanced Large Language Models & Visualization Tools for Data Analytics Learning
+
+Este repositorio acompaña un estudio aplicado con **59 participantes** (estudiantes y profesionales, mayoritariamente de perfiles **no computacionales**) para comparar tres formas de abordar proyectos de analítica de datos:
+
+- **Approach 1 — Tradicional**: Python con paquetes estándar (pandas, seaborn, scikit-learn, etc.).  
+- **Approach 2 — ChatGPT**: asistencia conversacional para generar/ajustar código.  
+- **Approach 3 — LIDA+GPT**: orquestación por API (resumen → objetivos → visualizaciones → material gráfico).
+
+**Idea fuerza.** Con ChatGPT las personas perciben **más facilidad y rapidez**; con LIDA+GPT, **mayor pertinencia y corrección** respecto al objetivo analítico. El enfoque tradicional funciona, pero tiende a ser **más lento** y con mayor fricción para perfiles no computacionales.
+
+---
+
+## ¿Para quién es útil este repo?
+
+- **Docentes** que desean integrar GenAI y visualización en cursos de análisis de datos.  
+- **Estudiantes y profesionales** que quieran practicar el ciclo de un proyecto analítico con **tres enfoques** y comparar su experiencia.  
+- **Equipos de formación** que buscan evidencia y materiales listos para **talleres prácticos**.
+
+---
+
+## Qué hay en este repositorio
+
+- `Data_processing.ipynb` — Notebook base para procesar la encuesta, generar tablas y **reproducir figuras**.  
+- `materials/` — Materiales de apoyo (p. ej., el artículo y la presentación).  
+- `images/` — **Figuras fuente** en formato **.eps** (las mismas que se utilizaron en el artículo y materiales).
+
+> **Nota:** GitHub no renderiza `.eps` **inline** en Markdown. Más abajo verás cómo generar **PNG/SVG** manteniendo los EPS como fuente, para que se **vean en el README** sin perder trazabilidad.
+
+---
+
+## Empezar (5 minutos)
+
+### 1) Entorno (Python 3.10+)
+```bash
+pip install -U pandas numpy matplotlib seaborn plotly scipy dython
+```
+
+### 2) Datos (descarga desde el artículo)
+1. Abre el artículo en Frontiers y ve a **Supplementary material**.  
+2. Descarga el **Data Sheet 1** (CSV) y colócalo donde prefieras (recomendado: `materials/`).
+
+> En este README asumiremos la ruta `materials/Data Sheet 1.csv`. Si usas otra, ajusta el path en el notebook.
+
+### 3) Ejecuta el notebook
+```bash
+jupyter notebook Data_processing.ipynb
+```
+El notebook generará o actualizará figuras en `images/`. Mantén los `.eps` como **fuente** y añade también `.png/.svg` si quieres verlas inline en GitHub.
+
+---
+
+## Mapa de figuras del **repo** (trazabilidad por nombre de archivo)
+
+> A continuación vinculo cada **archivo EPS del repositorio** con lo que muestra (tal como aparece en el estudio). Úsalo para ubicar rápidamente la figura y, si lo deseas, generar su versión `.png/.svg` con el **mismo nombre base**.
+
+- `images/fig1.eps` — **Current role × Gender** (barras).  
+- `images/fig2.eps` — **Affiliation** (barras).  
+- `images/fig3.eps` — **Age range** (barras).  
+- `images/fig4-c.eps` — **Programming experience by role** (dos pasteles: *Students* y *Professionals*).  
+- `images/fig6-c.eps` — **Data analytics experience by role** (dos pasteles).  
+- `images/fig8.eps` — **Experience using tools like Python/Colab/etc.** (pastel global).  
+- `images/fig9.eps` — **Programming experience by Age range × Role × Gender** (barras apiladas horizontales).  
+- `images/fig13.eps` — **Time required to finish activities** (barras apiladas por enfoque y rol).  
+- `images/fig14.eps` — **GenAI experience** (cuatro pasteles: uso general de ChatGPT; para programación; para data analytics; **APIs** generativas).  
+- `images/fig15.eps` — **Soporte/composición adicional** utilizada en materiales (variación/agrupación visual complementaria del estudio).  
+- `images/fig16-2.eps` — **Metrics by role (lollipop)**: *Ease*, *Speed*, *Appropriateness*, *Correctness* → por **rol** (Student/Professional).  
+- `images/fig17-2.eps` — **Metrics by gender (lollipop)**: mismas métricas → por **género** (Female/Male).
+
+> **Lectura didáctica rápida:**  
+> - **Ease** y **Speed** favorecen **Approach 2 (ChatGPT)**.  
+> - **Appropriateness** y **Correctness** favorecen **Approach 3 (LIDA+GPT)**.  
+> - **Approach 1 (Tradicional)** suele concentrar los **tiempos más largos**.
+
+---
+
+## Ver las figuras **inline** en GitHub (sin perder los `.eps`)
+
+Aunque las referencias de arriba usan los nombres reales del repo, para que se **vean** en el README conviene tener **PNG/SVG** con el **mismo nombre base**:
+
+### Opción A — ImageMagick → PNG
+```bash
+# Instala ImageMagick (y Ghostscript si aplica)
+# macOS: brew install imagemagick ghostscript
+# Ubuntu/Debian: sudo apt-get install imagemagick ghostscript
+
+# Convierte todos los EPS a PNG (300 dpi)
+magick mogrify -density 300 -format png images/*.eps
+# Resultado: images/fig1.png, fig2.png, … (mismos nombres base)
+```
+
+### Opción B — Inkscape → SVG
+```bash
+# Ejemplo por archivo (SVG vectorial)
+inkscape images/fig1.eps --export-type=svg --export-filename=images/fig1.svg
+```
+
+En tu Markdown podrás escribir `![Fig. 1](images/fig1.png)` y mantener los `.eps` como fuente.
+
+---
+
+## Mini-demos y actividades (listas para usar)
+
+### A) Conteo por **Affiliation** (reproducir `fig2.eps` en PNG)
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("materials/Data Sheet 1.csv")  # ajusta si usas otra ruta
+order = df["Affiliation"].value_counts().index
+
+ax = df["Affiliation"].value_counts()[order].plot(kind="bar", rot=45)
+ax.set_title("Number of participants by affiliation")
+ax.set_xlabel("")
+ax.set_ylabel("Count")
+plt.tight_layout()
+plt.savefig("images/fig2.png", dpi=300)  # deja 'fig2.png' junto a 'fig2.eps'
+plt.show()
+```
+
+**Para discutir en clase:** por qué predominan *Business* y *Social Sciences & Government* y qué implica para la curva de aprendizaje en cada enfoque.
+
+### B) Barras apiladas por **tiempo de actividad** (enfoques 1–3 × rol)
+> Reproduce la lógica de `fig13.eps` (ajusta nombres de columnas a los de tu CSV).
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Ejemplo de columnas esperadas:
+# Role ∈ {Student, Professional}
+# Approach ∈ {Approach 1, Approach 2, Approach 3}
+# TimeBin ∈ {"Less than 5 minutes","5 to 10 minutes","10 to 15 minutes","15 to 30 minutes","More than 30 minutes"}
+
+df = pd.read_csv("materials/Data Sheet 1.csv")
+order_time = ["Less than 5 minutes","5 to 10 minutes","10 to 15 minutes","15 to 30 minutes","More than 30 minutes"]
+df["TimeBin"] = pd.Categorical(df["TimeBin"], order_time, ordered=True)
+
+tab = (df.groupby(["Role","Approach","TimeBin"])
+         .size()
+         .groupby(level=[0,1]).apply(lambda s: 100*s/s.sum())
+         .unstack(fill_value=0))
+
+for role, subt in tab.groupby(level=0):
+    ax = (subt.droplevel(0)
+             .reindex(["Approach 1","Approach 2","Approach 3"])
+             [order_time]
+             .plot(kind="barh", stacked=True, figsize=(8,2.6)))
+    ax.set_title(f"Time required — {role}")
+    ax.set_xlabel("Percentage of participants")
+    ax.set_ylabel("")
+    plt.legend(loc="lower right", ncol=3, fontsize=8)
+    plt.tight_layout()
+    plt.show()
+```
+
+**Qué observar:**  
+- ChatGPT concentra intervalos **≤ 15 min**.  
+- LIDA+GPT reduce fricción cuando ya está configurado (orquestación), con **pertinencia/corrección** más altas (ver `fig16-2.eps` y `fig17-2.eps`).  
+- En el enfoque tradicional, el tiempo se desplaza hacia **15–30+ min**.
+
+### C) Prompting guiado (transferible a cualquier CSV)
+- *“Haz un EDA mínimo (nulos, distribuciones, asociaciones) con **código + explicación** y un **check** con datos simulados.”*  
+- *“Propón **3 visualizaciones** alineadas a un objetivo docente (qué pregunta responde cada una) y entrega el **código ejecutable**.”*  
+- *“Genera una **rúbrica** breve para evaluar claridad, adecuación de la visual y reproducibilidad.”*
+
+> **Mano humana**: ajusta títulos, ejes, orden y notas al pie. La **curaduría** convierte un gráfico en **evidencia**.
+
+---
+
+## Sugerencia de sesión (90 min)
+
+1) **Briefing (10’)** — Usa `fig1–fig3` para “leer” a tu audiencia (roles, afiliaciones, edades).  
+2) **Hands-on A1 (25’)** — EDA mínimo con enfoque tradicional.  
+3) **Hands-on A2 (25’)** — ChatGPT como asistente (*código + explicación + pruebas*).  
+4) **Hands-on A3 (25’)** — LIDA+GPT como “consultor” (resumen → objetivos → visual).  
+5) **Cierre (5’)** — Debate con `fig16-2` y `fig17-2`: ¿qué valoró cada equipo (facilidad/rapidez vs. pertinencia/corrección)?
+
+---
+
+## Contribuciones
+
+- **PRs/Issues** con ejemplos de clase, nuevos datasets o guías de evaluación son bienvenidos.  
+- Si generas `figX.png/svg`, súbelos a `images/` con el **mismo nombre base** para mantener trazabilidad con los `.eps`.
+
+---
+
+## Licencia y **cómo citar**
+
+- El artículo y figuras están bajo **Creative Commons BY 4.0** (reutiliza con atribución).  
+- Cita recomendada:
+
+> Valverde-Rebaza, J., González, A., Navarro-Hinojosa, O., & Noguez, J. (2024).  
+> *Advanced large language models and visualization tools for data analytics learning.* Frontiers in Education, 9:1418006.  
+> DOI: 10.3389/feduc.2024.1418006
