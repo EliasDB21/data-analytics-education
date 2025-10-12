@@ -3,7 +3,6 @@
 Welcome to our project on **Advanced Large Language Models & Visualization Tools for Data Analytics Learning**! Our mission is to revolutionize the way non-computational professionals and students learn data analytics. We do this by harnessing the power of cutting-edge AI technologies like [GPT-4](https://openai.com/index/gpt-4-research/) and the advanced visualization capabilities of tools like [LIDA](https://github.com/microsoft/lida). Our research, supported by extensive case studies and published in specialized conferences and journals, shows how these tools can drastically improve both the speed and quality of data-related disciplines education. Join us on this exciting journey to make data analytics and data science more accessible, efficient, and engaging for everyone!
 
 
-
 ## Project Overview
 
 This project, based on two comprehensive studies, explores the use of advanced Large Language Models (LLMs) and visualization tools to enhance data analytics learning for students and professionals from non-computational backgrounds. The methodologies and outcomes described herein underscore the significant benefits of integrating cutting-edge AI technologies such as based on Generative AI (GenAI) into educational practices to foster a deeper understanding and more efficient execution of data-related projects.
@@ -19,34 +18,22 @@ This project, based on two comprehensive studies, explores the use of advanced L
 ### Methodology
 The project unfolds in several key stages, as outlined in the case studies:
 
-#### Participants background
-Students and professionals from non-computational backgrounds. Specifically, 88% of participants came from fields such as finance, business, social sciences, and others, while the remaining 12% were from engineering disciplines including sustainable engineering, chemical engineering, biomedical engineering, and industrial engineering.
-
-#### Case Study Design
-- Traditional Approach: Participants first completed a data analytics project using standard Python packages (e.g., scikit-learn, pandas, seaborn) in Google Colab.
-- ChatGPT Approach: Participants then repeated the project with conventional ChatGPT assistance, using the tool mainly for generating code snippets.
-- LIDA + GPT Approach: Finally, participants completed the project using LIDA integrated with the GPT-4 API, enabling automated data summarization, exploration, and advanced visualizations in response to any prompt originating from the project’s source code itself.
-
-
-# Advanced Large Language Models & Visualization Tools for Data Analytics Learning
-
-## Study narrative
-
-### Motivation
-Teaching data analytics to learners from **non-computing backgrounds** is challenging: mastering code, reasoning about data, and producing clear visual evidence can feel like three separate hurdles. This study examines whether **visualization-aware uses of Generative AI (GenAI)** can lower those hurdles in formal education, not by replacing instruction, but by aligning assistance with the goals of an analytics pipeline.
-
 ### Participants and sample composition
 We worked with **59 participants** (students and professionals) at Tecnológico de Monterrey across a broad set of disciplinary backgrounds. Understanding who took part is essential for reading the results.
 
 ![Sample composition — role × gender](images/IMAGEN1.jpg)
+
 *Figure 1 — Current role by gender.*
 
 ![Sample composition — affiliation](images/IMAGEN2.jpg)
+
 *Figure 2 — Affiliation (major field or sector).*
 
 ![Sample composition — age range](images/IMAGEN3.jpg)
+
 *Figure 3 — Age distribution.*
 
+Students and professionals from non-computational backgrounds. Specifically, 88% of participants came from fields such as finance, business, social sciences, and others, while the remaining 12% were from engineering disciplines including sustainable engineering, chemical engineering, biomedical engineering, and industrial engineering. 
 In addition to demographics, we documented prior exposure to programming, analytics, and AI tools to contextualize later perceptions:
 
 ![Background — programming experience by role](images/IMAGEN4.jpg)
@@ -63,6 +50,17 @@ In addition to demographics, we documented prior exposure to programming, analyt
 
 ![Background — GenAI experience (general, programming, analytics, APIs)](images/IMAGEN8.jpg)
 *Figure 8 — Experience with ChatGPT/GenAI in general, for programming, for analytics, and with generative APIs.*
+
+
+#### Case Study Design
+- Traditional Approach: Participants first completed a data analytics project using standard Python packages (e.g., scikit-learn, pandas, seaborn) in Google Colab.
+- ChatGPT Approach: Participants then repeated the project with conventional ChatGPT assistance, using the tool mainly for generating code snippets.
+- LIDA + GPT Approach: Finally, participants completed the project using LIDA integrated with the GPT-4 API, enabling automated data summarization, exploration, and advanced visualizations in response to any prompt originating from the project’s source code itself.
+
+
+### Motivation
+Teaching data analytics to learners from **non-computing backgrounds** is challenging: mastering code, reasoning about data, and producing clear visual evidence can feel like three separate hurdles. This study examines whether **visualization-aware uses of Generative AI (GenAI)** can lower those hurdles in formal education, not by replacing instruction, but by aligning assistance with the goals of an analytics pipeline.
+
 
 ### Experimental setup
 All participants completed the **same analytics project** within a timed session that emphasized three CRISP-DM phases explicitly taught beforehand: **Business Understanding**, **Data Understanding**, and **Evaluation**. To compare workflows fairly, each person experienced **three approaches** to the same task:
