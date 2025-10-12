@@ -28,9 +28,93 @@ Students and professionals from non-computational backgrounds. Specifically, 88%
 - LIDA + GPT Approach: Finally, participants completed the project using LIDA integrated with the GPT-4 API, enabling automated data summarization, exploration, and advanced visualizations in response to any prompt originating from the project’s source code itself.
 
 
-### Key Findings
+# Advanced Large Language Models & Visualization Tools for Data Analytics Learning
 
-to be updated
+## Study narrative
+
+### Motivation
+Teaching data analytics to learners from **non-computing backgrounds** is challenging: mastering code, reasoning about data, and producing clear visual evidence can feel like three separate hurdles. This study examines whether **visualization-aware uses of Generative AI (GenAI)** can lower those hurdles in formal education, not by replacing instruction, but by aligning assistance with the goals of an analytics pipeline.
+
+### Participants and sample composition
+We worked with **59 participants** (students and professionals) at Tecnológico de Monterrey across a broad set of disciplinary backgrounds. Understanding who took part is essential for reading the results.
+
+![Sample composition — role × gender](images/IMAGEN1.jpg)
+*Figure 1 — Current role by gender.*
+
+![Sample composition — affiliation](images/IMAGEN2.jpg)
+*Figure 2 — Affiliation (major field or sector).*
+
+![Sample composition — age range](images/IMAGEN3.jpg)
+*Figure 3 — Age distribution.*
+
+In addition to demographics, we documented prior exposure to programming, analytics, and AI tools to contextualize later perceptions:
+
+![Background — programming experience by role](images/IMAGEN4.jpg)
+*Figure 4 — Programming experience (Students vs. Professionals).*
+
+![Background — programming experience by age × role × gender](images/IMAGEN5.jpg)
+*Figure 5 — Programming experience broken down by age, role, and gender.*
+
+![Background — data analytics experience by role](images/IMAGEN6.jpg)
+*Figure 6 — Data analytics experience (Students vs. Professionals).*
+
+![Background — tools experience (Python/Colab, etc.)](images/IMAGEN7.jpg)
+*Figure 7 — Experience with Python/Colab and related tools.*
+
+![Background — GenAI experience (general, programming, analytics, APIs)](images/IMAGEN8.jpg)
+*Figure 8 — Experience with ChatGPT/GenAI in general, for programming, for analytics, and with generative APIs.*
+
+### Experimental setup
+All participants completed the **same analytics project** within a timed session that emphasized three CRISP-DM phases explicitly taught beforehand: **Business Understanding**, **Data Understanding**, and **Evaluation**. To compare workflows fairly, each person experienced **three approaches** to the same task:
+
+- **Approach 1 — Traditional:** standard Python stack (e.g., pandas, matplotlib, seaborn, scikit-learn).
+- **Approach 2 — ChatGPT:** conversational assistance to produce and refine code and explanations.
+- **Approach 3 — LIDA + GPT (API orchestration):** model-assisted summaries, goal proposals, and visualization specifications integrated into the programming flow.
+
+The session was paced and instrumented to capture not only **time-to-completion** but also **perceived qualities** of each approach: *ease of use*, *speed of result*, *appropriateness* (fit to the analytical goal), and *correctness* of outcomes.
+
+### Results
+We summarize the main findings here; the figures show the distributions that underpin each statement.
+
+**1) Time to finish.**  
+Approaches supported by GenAI enabled faster completion for many participants. In particular, **ChatGPT** frequently concentrated times in the lower intervals, while **Traditional** clustered toward longer spans. Professionals tended to finish faster, but students benefited markedly from AI support.
+
+![Outcome — time required to finish activities (by role and approach)](images/IMAGEN9.jpg)
+*Figure 9 — Time required by approach and role (stacked categories).*
+
+*(If your repository includes an additional time-distribution panel, include it here as well.)*
+
+![Outcome — time required (variant panel, if available)](images/IMAGEN10.jpg)
+*Figure 10 — Complementary time distribution (if provided in your image set).*
+
+**2) Perceived ease and speed.**  
+Across roles and genders, participants most often identified **ChatGPT** as the **easiest** and **fastest** way to progress once the task was understood.
+
+**3) Perceived appropriateness and correctness.**  
+When the criterion shifted to **fit to the analytical objective** and **correctness** of outputs, **LIDA + GPT** was most frequently favored. Its structured flow (summary → goals → visualization spec) helped keep attention on the target once configured.
+
+![Outcome — perceived metrics by role](images/IMAGEN11.jpg)
+*Figure 11 — Ease, Speed, Appropriateness, Correctness by role (Students vs. Professionals).*
+
+![Outcome — perceived metrics by gender](images/IMAGEN12.jpg)
+*Figure 12 — The same four metrics by gender.*
+
+### Discussion
+The three approaches display **distinct learning curves**. The **Traditional** path asks novices to integrate many components, which costs time and attention. **ChatGPT** reduces the startup load and accelerates iteration, but it still requires careful human judgment to verify and assemble a coherent solution. **LIDA + GPT** introduces initial overhead (API setup and configuration) followed by a smoother, goal-oriented path that participants perceived as more appropriate and correct.
+
+### Conclusions
+Taken together, the results suggest that **visualization-aware GenAI** can support learners from non-computing backgrounds in completing the same analytics project **more efficiently**, while aligning outputs with clearly defined goals. The pattern is consistent across roles and genders: **ChatGPT** is perceived as the fastest on-ramp, whereas **LIDA + GPT** is perceived as best aligned with task requirements and correctness once the pipeline is in place.
+
+---
+
+## How to embed the figures (PNG) in your README
+
+1. Place the PNG files in your repository under `images/` with the exact names used above (e.g., `images/IMAGEN1.png`, `images/IMAGEN2.png`, …, `images/IMAGEN12.png`).  
+2. Use standard Markdown syntax to embed them where relevant in your narrative:
+   ```md
+   ![Sample composition — role × gender](images/IMAGEN1.png)
+   *Figure 1 — Current role by gender.*
+
 
 
 
